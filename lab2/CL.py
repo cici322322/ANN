@@ -1,11 +1,3 @@
-
-"""
-
-Author: Yifan Ye
-Email: 645577765yyf@gmail.com
-
-"""
-
 import numpy as np 
 class RBF_with_competitivelearning ():
 
