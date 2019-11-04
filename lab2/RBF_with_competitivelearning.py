@@ -1,11 +1,3 @@
-
-"""
-
-Author: Yifan Ye
-Email: 645577765yyf@gmail.com
-
-"""
-
 import numpy as np 
 class RBF_with_competitivelearning ():
 
@@ -69,13 +61,13 @@ class RBF_with_competitivelearning ():
 
     def fit_least_squares(self, x_train , y_train ):
 
-        self.centers= self.centers_initiate(x_train, self.hidden_layer_nodes)   ##initiate centers based on x_train
-        G = self.compute_transfer(x_train,self.centers)   ## G: N*n      N: number of train set; n : number of hidden nodes
+        self.centers= self.centers_initiate(x_train, self.hidden_layer_nodes)
+        G = self.compute_transfer(x_train,self.centers) 
         
         self.W=   np.dot  (   np.dot(np.linalg.pinv(np.dot(np.transpose(G),G)), np.transpose(G) ), y_train)
 
-    def fit_delta(self, x_train , y_train, lr, epoch ):   ## lr: learning_rate
-        self.centers= self.centers_initiate(x_train, self.hidden_layer_nodes)   ##initiate centers based on x_train
+    def fit_delta(self, x_train , y_train, lr, epoch ):
+        self.centers= self.centers_initiate(x_train, self.hidden_layer_nodes)
         self.W = np.random.randn(self.hidden_layer_nodes,x_train.shape[1])
         for e in range(epoch):
             for i, signle_x in enumerate(x_train):
